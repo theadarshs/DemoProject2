@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="3" time="8.815" timestamp="2022-10-20T00:01:25.328025" hostname="DESKTOP-CE13663"><testcase classname="test_HomePage.TestHomePage" name="test_formSubmission[getData0]" time="4.685" /><testcase classname="test_HomePage.TestHomePage" name="test_formSubmission[getData1]" time="0.689" /><testcase classname="test_e2e.TestOne" name="test_e2e" time="3.197"><failure message="AttributeError: 'CheckOutPage' object has no attribute 'getCardFooter'">self = &lt;tests.test_e2e.TestOne object at 0x0000016F05A366E0&gt;
+
+    def test_e2e(self):
+        log = self.getLogger()
+        homePage = HomePage(self.driver)
+        checkoutpage = homePage.shopItems()
+        log.info("getting all the card titles")
+        cards = checkoutpage.getCardTitles()
+        i = -1
+        for card in cards:
+            i = i + 1
+            cardText = card.text
+            log.info(cardText)
+            if cardText == "Blackberry":
+&gt;               checkoutpage.getCardFooter()[i].click()
+E               AttributeError: 'CheckOutPage' object has no attribute 'getCardFooter'
+
+test_e2e.py:24: AttributeError</failure></testcase></testsuite></testsuites>
